@@ -1,15 +1,15 @@
-class MultithereadingDemo implements Runnable{
+class MultithereadingDemo extends Thread{
   public void run(){
-    Thread.currentThread();
+    
     System.out.println("I am ");
     System.out.println(Thread.currentThread().getId());
   }
 }
-public class Main{
+public class Main1{
   public static void main(String [] args){
     
-    MultithereadingDemo obj1=new MultithereadingDemo();
-    Thread obj=new Thread(obj1);
+    MultithereadingDemo obj=new MultithereadingDemo();
+   
     obj.start();
   }
 }

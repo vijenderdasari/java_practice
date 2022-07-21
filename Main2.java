@@ -1,47 +1,33 @@
-//Create an abstract class Shape with abstract method public abstract Double calculatePerimeter()Create a class Circle that extends Shape with following attributes,Attributes Datatype radius Float
-//Create a class Rectangle that extends Shape with the following attributes,Attributes Datatype length Float breadth Float
-//Create a class Square that extends Shape with the following attributes,Attributes Datatype side Float
-//Implement the method calculatePerimeter() in all the child classes to calculate appropriate perimeters.
-abstract class Shape
-       {
-         public abstract double calculatePerimeter();
-       }
-class Circle extends Shape
+//
+import java.util.*;
+class InvalidMobilenumberException extends Exception
   {
-    float radius;
-    public double calculatePerimeter()
+    public InvalidMobilenumberException(String msg)
     {
-      return 2*3.14*radius;
+      super(msg);
     }
-    
   }
-class Rectangle extends Shape
+class Main2
   {
-    float length;
-    float breadth;
-    public double calculatePerimeter()
+    public  static void validate(String mobilenumber) throws InvalidMobilenumberException
     {
-     return 2*(length+breadth);
-    }
-    
-  }
-class Square extends Shape
-  {
-      float side;
-    public double calculatePerimeter()
-    {
-      return 4*side;
-    }
-    
-  
-  }
-  class Main2
-    {
-      public static void main(String args[])
+      if(mobilenumber.length()<10)
       {
-        Square rect=new Square();
-        rect.side=4;
-        double perimeter=rect.calculatePerimeter();
-        System.out.println(perimeter);
+        throw new InvalidMobilenumberException("invalid mobile number");
+      }
+      else{
+        System.out.println(mobilenumber);
       }
     }
+    public static void main(String args[])
+    {
+      try{
+        validate("1234567756");
+      }
+      catch(InvalidMobilenumberException ex)
+        {
+          System.out.println(ex);
+        }
+    }
+    
+  }
