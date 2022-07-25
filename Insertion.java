@@ -1,4 +1,5 @@
-class Main
+//Insertion Sort
+class Insertion
   {
     public static void main(String args[])
     {
@@ -11,16 +12,15 @@ class Main
           System.out.println(arr[i]);
         }
       //bubble sort
-      for(i=0;i<n-1;i++)
+      for(i=1;i<n;i++)
         {
-          for(j=0;j<n-1;j++)
+          for(j=i;j>0&&arr[j-1]>arr[j];j--)
             {
-              if(arr[j]>arr[j+1])
-              {
+              
                 temp=arr[j];
-                arr[j]=arr[j+1];
-                arr[j+1]=temp;
-              }
+                arr[j]=arr[j-1];
+                arr[j-1]=temp;
+             
             }
         }
        System.out.println("after sorting");
