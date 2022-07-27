@@ -1,28 +1,36 @@
-/* 2. Write a program which will illustrate NumberFormatException. Create a test method, with in the test method accept two numbers 
-   using next() method of scanner class. Convert into numerical values and print addition of two numbers. 
-   Please write your comments regarding NumberFormatException such as "When NumberFormatException will occur in this program?"
+/* 3. Write a program to accept firstName, lastName and mobileNumber in string format. 
+   Print number of characters in firstName and lastName, and print sum of digits of a mobileNumber. 
+   Handle NumberFormatException while converting mobileNumber to long.
 */
 
-import java.util.*;
+import java.util.Scanner;
 public class NumberFormatException {
-    String addNumbers(String a, String b) {
-    String sum = a + b;
-    return sum;
-  }
 
     public static void main(String args[]) {
-      Scanner sc = new Scanner(System.in);
-      NumberFormatException obj = new NumberFormatException();
-      System.out.println("Enter a first number");
-      String num1 = sc.next();
-      System.out.println("Enter the second number");
-      String num2 = sc.next();
-      String result = num1+num2;
-      result = obj.addNumbers(num1, num2);
-      int a = Integer.parseInt(result);
-      System.out.println(a);
-      System.out.println("Sum is: " + result);
-      
-
+      Scanner sc=new Scanner(System.in);
+      System.out.println("enter first name");
+      String first_name=sc.next();
+      System.out.println("enter last name");
+      String last_name=sc.next();
+      System.out.println("enter mobile number");
+      String mobileNumber=sc.next();
+      System.out.println("Length of the first name string is: "+ first_name.length());
+      System.out.println("Length of the last name string is: "+ last_name.length());
+      try
+        {
+          long number=Long.parseLong(mobileNumber);
+          long digit, sum=0;
+          while(number>0)
+          {
+            digit = number%10;
+            sum = sum+digit;
+            number = number/10;
+          }
+          System.out.println("Sum of the phone number is: "+sum);
+        }
+      catch (Exception e)
+        {
+          System.out.println("Conversion failed "+e);
+        }
     }
 }

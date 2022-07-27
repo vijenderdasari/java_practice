@@ -1,19 +1,39 @@
-/* 1. Write a program which will illustrate ArthmeticException. Create a parameterized method which can take two values and print division of two numbers. 
-Please write your comments regarding ArithmeticException such as "When ArithmeticException will occur in this program?"
+/* 1. Write a program to accept two numbers, one Arithmetic operator such as +, -, / , *  and print output of Arithmetic operation. 
+   Write switch case to perform each operation. Handle ArithmeticException when you are performing division operation. 
 */
-public class ArithmeticException
-{
-  public static void main(String args[])
-  {
-      ArithmeticException obj=new ArithmeticException(10,0);//ArithmeticException will occur
-    System.out.println("division is done");
-    }
-  ArithmeticException(int n1,int n2)
-  {
-    //ArithmeticException will occur here
-    int c=n1/n2;
-    System.out.println("n1/n2="+c);
-  }
-}
 
-//Good Job!
+import java.util.*;
+public class ArithmeticException {
+
+    public static void main(String args[]) {
+      Scanner sc=new Scanner(System.in);  
+      System.out.println("enter first number");
+      int a=sc.nextInt();
+      System.out.println("enter second number");
+      int b=sc.nextInt();
+      System.out.println("enter operation ");
+      char operation=sc.next().charAt(0);
+      switch(operation) {
+          case '+':
+          System.out.println(a+b);
+          break;
+          case '-':
+          System.out.println(a-b);
+          break;
+          case '/':
+          try{
+          System.out.println(a/b);
+          }
+          catch (Exception obj) {
+      System.out.println("cannot devide by 0");
+    }
+          break;
+          case '*':
+          System.out.println(a*b);
+          break;
+          default:
+          System.out.println("enter valid input");
+    }
+
+    }
+}
